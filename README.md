@@ -16,7 +16,7 @@ NetWork.getNetworkState((isConnected) => {
     }
 })
 ```
-###### (2)网络是否为计费,(Android设备)
+###### (2)网络是否为计费(Android设备)
 ```javascript
 NetWork.isConnectionExpensive((isConnectionExpensive) => {
     if(isConnectionExpensive) {
