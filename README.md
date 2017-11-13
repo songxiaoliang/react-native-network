@@ -2,56 +2,11 @@
 ## react-native 网络封装库
 ### 支持 Android、iOS 设备平台
 
+#### 集成
+##### 1.导入文件到工程目录
+##### 2.使用
+
 ``` javascript
-/***
- * 获取网络连接状态
- * (Android设备)
- * @param callback
- */
-const getNetworkState = (callback) => {
-    NetInfo.isConnected.fetch().done(
-        (isConnected) => {
-            callback(isConnected);
-        }
-    );
-}
-
-/**
- * 网络是否为计费: 移动网络 true , WiFi: false
- * (Android设备)
- * @param {*} callback 
- */
-const isConnectionExpensive = (callback) => {
-    NetInfo.isConnectionExpensive().then((isConnectionExpensive) => {
-        callback(isConnectionExpensive)
-    }).catch(error => {
-        console.error(error);
-    })
-}
-
-iOS相关：
-/**
- * 注册网络监听，获取网络连接状态
- * (iOS设备)
- * true: 连接， false: 离线
- * @param {*}  callback
- */
-const addNetListener = (callback) => {
-    NetInfo.isConnected.addEventListener(TAG_NETWORK_CHANGE, callback);
-}
-
-/**
- * 移除网络监听
- * (iOS设备)
- * @param {*} callback 
- */
-const removeNetListener = (callback) => {
-    NetInfo.isConnected.removeEventListener(TAG_NETWORK_CHANGE, callback);
-}
-
-
-三、使用
-
 (1)Android网络状态：
 NetWork.getNetworkState((isConnected) => {
     if(isConnected) {
