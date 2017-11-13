@@ -25,8 +25,30 @@ NetWork.isConnectionExpensive((isConnectionExpensive) => {
     } 
 })
 
-(3)获取当前设备连接的网络类型，ex.移动网络、Wifi等
+(3)iOS设备连接状态
+
+// 注册监听
+componentWillMount() {
+    if(Platform.OS === 'ios') {
+        NetWork.addNetListener(NetWork.TAG_NETWORK_CHANGE, (isConnected)=>{
+            console.log(isConnected);
+        })
+    }
+}
+
+// 注销监听
+componentWillUnmount() {
+    if(Platform.OS === 'ios') {
+        NetWork.removeNetListener(NetWork.TAG_NETWORK_CHANGE, this._getNetWork);
+    }
+}
+
+(4)获取当前设备连接的网络类型，ex.移动网络、Wifi等
 NetWorkUtil.getNetType((reach) => {
-  console.log(reach)
+    if(reach === 'none' || reach === 'NONE') {
+        console.log('网络未连接');
+    } else {
+        console.log(reach);
+    }
 })
 ```
