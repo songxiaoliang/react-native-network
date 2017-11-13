@@ -1,6 +1,6 @@
 # react-native-network
-## react-native 网络封装库
-### 支持 Android、iOS 设备平台
+### react-native 网络封装库，支持 Android、iOS 设备平台
+
 
 #### 集成
 ##### 1.导入文件到工程目录
